@@ -1,0 +1,7 @@
+{
+  "name": "evaluacion-3-intento-3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
