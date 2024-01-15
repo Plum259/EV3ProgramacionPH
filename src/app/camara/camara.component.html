@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Camara
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-button (click)="tomarFoto()">Tomar Foto</ion-button>
+<img *ngIf="foto != null" [src]="foto.webPath" alt="Foto" />
+<ion-button *ngIf="foto != null" (click)="confirmarFoto()" fill="solid" color="light">confirmar foto</ion-button>
+</ion-content>

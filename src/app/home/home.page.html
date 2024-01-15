@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Destinos Vacacionales 
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="buscarLugares($event)" placeholder="playa">
+  </ion-searchbar>
+  <ion-list *ngIf="lugaresInicio.length">
+    <ion-item *ngFor="let lugar of lugaresInicio">
+      <ion-thumbnail slot="start">
+        <img [src]="lugar.imagenUrl" alt="imagen del lugar">
+      </ion-thumbnail>
+      <ion-label>
+        <h1>{{lugar.properties.name}}</h1> 
+        <h2>{{lugar.precio | currency:'USD':'symbol':'1.2-2'}}</h2>
+       </ion-label>
+       <ion-button slot="end" fill="solid" color="light" (click)="cambiarPrecio(lugar)">
+        ✈️
+      </ion-button>
+      <ion-button slot="end" fill="solid" color="light" (click)="cambiarFoto(lugar)">
+        📷
+      </ion-button>
+      <ion-button slot="end" fill="solid" color="light" (click)="eliminarDeInicio(lugar)">
+        🗑️
+      </ion-button>
+    </ion-item>
+  </ion-list>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ng-container *ngFor="let lugar of lugaresEncontrados">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="lugar.imagenUrl" alt="imagen del lugar">
+        </ion-thumbnail>
+        <ion-label>
+         <h1>{{lugar.properties.name}}</h1> 
+        </ion-label>
+        <ion-button slot="end" fill="solid" color="light" (click)="agregarAInicio(lugar)">+</ion-button>
+      </ion-item>
+    </ng-container>
+  </ion-list>
 </ion-content>

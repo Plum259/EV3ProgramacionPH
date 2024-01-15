@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="cerrarModal()">cancelar</ion-button>
+      </ion-buttons>
+      <ion-title>Valor vuelo ida y vuelta</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="cambiarPrecio()">confirmar</ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input type="number" label="Valor del vuelo ida y vuelta en USD" [(ngModel)]="precioActual" name="precio"></ion-input>
+  </ion-item>
+</ion-content>
